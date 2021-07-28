@@ -23,7 +23,20 @@ def result():
     aspmodel = results.readlines()
 
     for models in aspmodel:
-       print(models)
+       model = models.replace(")","").split("(")
+       if model[0] == 'symptom':
+         print(model[1])
+
+       if model[0] == 'diagnosis':
+         print(model[1])
+
+       if model[0] == 'treatment':
+         print(model[1])
+         treatments = model[1].split(",")
+         for treatment in treatments:
+            print(treatment.strip())
+
+
     return render_template("diagnosis.html",result = symptoms)
 
 if __name__ == '__main__':
