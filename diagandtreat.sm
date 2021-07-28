@@ -1,0 +1,2 @@
+cold :- symptom(headache), symptom(fever), symptom(fatigue).
+treatment(zpac,cold) :- cold.

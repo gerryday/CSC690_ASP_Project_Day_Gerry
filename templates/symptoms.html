@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>Symptoms</title>
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+        <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="nav-fixed">
+      <div id="layoutSidenav_content">
+          <main>
+              <!-- Main page content-->
+              <div class="container mt-4">
+                  <div class="row">
+                      <div class="col-lg-8">
+                          <div class="card card-header-actions mb-4">
+                              <div class="card-header">
+                                  Symptoms
+                              </div>
+                              <div class="card-body">
+                                  <form action = "http://localhost:5000/diagnosis" method = "POST">
+                                      <!-- Form Group-->
+                                      <div class="form-group mb-0">
+                                          <label class="small mb-1">Please select all your symptoms:</label>
+                                          <div class="row">
+                                              <div class="col-6">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkHeadache" name="symptoms" value="Headache" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkHeadache">Headache</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkFever"  name="symptoms"  value="Fever" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkFever">Fever</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkRunnyNose" name="symptoms"  value="Runny Nose" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkRunnyNose">Runny Nose</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkCongestion" name="symptoms"  value="Congestion" type="checkbox" />
+                                                        <label class="custom-control-label" for="checkCongestion">Congestion</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkSoreThroat" name="symptoms"  value="Sore Throat" type="checkbox" />
+                                                        <label class="custom-control-label" for="checkSoreThroat">Sore Throat</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkChestPain" name="symptoms" value="Chest Pain" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkChestPain">Chest pain</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkBodyache" name="symptoms" value="Body Ache" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkBodyache">Body Ache</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkSneezing"  name="symptoms"  value="Sneezing" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkSneezing">Sneezing</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkChills" name="symptoms"  value="Chills" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkChills">Chills</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkVomiting" name="symptoms"  value="Vomiting" type="checkbox" />
+                                                        <label class="custom-control-label" for="checkVomiting">Vomiting</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkFatigue" name="symptoms"  value="Fatigue" type="checkbox" />
+                                                        <label class="custom-control-label" for="checkFatigue">Fatigue</label>
+                                                    </div>
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" id="checkDiarrhea" name="symptoms" value="Diarrhea" type="checkbox"/>
+                                                        <label class="custom-control-label" for="checkDiarrhea">Diarrhea</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      </div>
+                                      <br>
+                                      <!-- Submit button-->
+                                      <button class="btn btn-primary">Get Diagnosis</button>
+                                  </form>
+                              </div>
+                          </div>
+                  </div>
+              </div>
+          </main>
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+      <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+   </body>
+</html>
