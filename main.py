@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import collections
 from os import system
 
 app = Flask(__name__)
@@ -22,22 +23,23 @@ def result():
     results = open('results.sm','r')
     aspmodel = results.readlines()
 
+    diagnosis = []
+    treatments = collections.defaultdict(list)
+
     for models in aspmodel:
        model = models.replace(")","").split("(")
-       if model[0] == 'symptom':
-         print(model[1])
 
        if model[0] == 'diagnosis':
-         print(model[1])
+         diagnosis.append(model[1].capitalize())
 
        if model[0] == 'treatment':
-         print(model[1])
-         treatments = model[1].split(",")
-         for treatment in treatments:
-            print(treatment.strip())
+         treatment = model[1].split(",")
+         treatments[treatment[0]].append(treatment[1].strip())
+         treatments[treatment[0]].append('test')
+       print(treatments)
 
 
-    return render_template("diagnosis.html",result = symptoms)
+    return render_template("diagnosis.html",result = symptoms, diagnosis = diagnosis, treatments = treatments)
 
 if __name__ == '__main__':
    app.run(debug = True)

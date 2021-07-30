@@ -38,7 +38,9 @@
                                 Diagnosis
                             </div>
                             <div class="card-body">
-                                <p>Cold, Flu, Covid-19</p>
+                                {% for d in diagnosis %}
+                                {{d}}{{ ", " if not loop.last else "" }}
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -52,7 +54,14 @@
                                 Treatment Options
                             </div>
                             <div class="card-body">
-                                <p>Asprin, Zpac</p>
+                                {% for key, value in treatments.items() %}
+                                <tr>
+                                    <th scope="row">{{ key }}</th>
+                                    {% for v in value %}
+                                    {{v}}{{ ", " if not loop.last else "" }}
+                                    {% endfor %}
+                                </tr>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
