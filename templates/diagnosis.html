@@ -56,11 +56,12 @@
                             <div class="card-body">
                                 {% for key, value in treatments.items() %}
                                 <tr>
-                                    <th scope="row">{{ key }}</th>
+                                    <th scope="row">{{ key }}-</th>
                                     {% for v in value %}
                                     {{v}}{{ ", " if not loop.last else "" }}
                                     {% endfor %}
                                 </tr>
+                                <br>
                                 {% endfor %}
                             </div>
                         </div>

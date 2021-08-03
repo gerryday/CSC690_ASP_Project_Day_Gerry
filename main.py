@@ -15,7 +15,7 @@ def result():
 
     f = open("symptoms.sm", "w")
     for symptom in symptoms:
-      f.write('symptom('+symptom.lower()+').\n')
+      f.write('symptom('+symptom.replace(" ","_").lower()+').\n')
     f.close()
 
     system(".\dependencies\clingo.exe .\symptoms.sm .\diagandtreat.sm | .\dependencies\mkatoms.exe > results.sm")
@@ -34,9 +34,7 @@ def result():
 
        if model[0] == 'treatment':
          treatment = model[1].split(",")
-         treatments[treatment[0]].append(treatment[1].strip())
-         treatments[treatment[0]].append('test')
-       print(treatments)
+         treatments[treatment[0].capitalize()].append(treatment[1].strip().capitalize().replace("_"," "))
 
 
     return render_template("diagnosis.html",result = symptoms, diagnosis = diagnosis, treatments = treatments)
