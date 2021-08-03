@@ -1,2 +1,23 @@
-diagnosis(cold) :- symptom(headache), symptom(fever), symptom(fatigue).
-treatment(cold,zpac) :- diagnosis(cold).
+diagnosis(cold) :- not symptom(vomiting), not symptom(fever), not symptom(diarrhea), not symptom(loss_of_taste).
+diagnosis(flu) :- symptom(fever), symptom(diarrhea), symptom(vomiting), not symptom(loss_of_taste).
+diagnosis(flu) :- not symptom(loss_of_taste).
+diagnosis(covid_19) :- symptom(loss_of_taste).
+
+treatment(cold,cough_medicine) :- diagnosis(cold), symptom(cough).
+treatment(cold,chicken_noodle_soup) :- diagnosis(cold).
+treatment(cold,vitamin_c) :- diagnosis(cold).
+treatment(cold,gargle_with_salt_water) :- diagnosis(cold), symptom(sore_throat).
+treatment(cold,plenty_of_rest) :- diagnosis(cold).
+
+treatment(flu,zpac) :- diagnosis(flu).
+treatment(flu,vitamin_c) :- diagnosis(flu).
+treatment(flu,tylenol) :- diagnosis(flu), symptom(fever).
+treatment(flu,plenty_of_rest) :- diagnosis(flu).
+
+treatment(covid_19,abuterol_inhaler) :- diagnosis(covid_19).
+treatment(covid_19,zpac) :- diagnosis(covid_19).
+treatment(covid_19,vitamin_d) :- diagnosis(covid_19).
+treatment(covid_19,hydroxychloroquine) :- diagnosis(covid_19).
+treatment(covid_19,dexamethasone) :- diagnosis(covid_19).
+treatment(covid_19,plenty_of_rest) :- diagnosis(covid_19).
+treatment(covid_19,quarantine_for_atleast_10_days) :- diagnosis(covid_19).
